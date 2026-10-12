@@ -1,0 +1,9 @@
+/* ── TABS ── */
+.tabs{display:flex;gap:4px;background:var(--g50);border-radius:10px;padding:4px;margin-bottom:20px;flex-wrap:wrap}
+body.dark .tabs{background:#0f2318}
+.tab{padding:7px 16px;border-radius:7px;border:none;background:none;cursor:pointer;
+  font-size:.83rem;font-weight:600;color:#64748b;transition:all .15s}
+.tab.active{background:white;color:var(--g700);box-shadow:0 1px 4px rgba(0,0,0,.1)}
+body.dark .tab.active{background:#1e3d28;color:var(--g300)}
+body.dark .tab{color:#94a3b8}
+

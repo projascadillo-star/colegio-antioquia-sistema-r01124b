@@ -1,0 +1,88 @@
+services:
+  - type: web
+    name: auth-service
+    runtime: node
+    rootDir: auth-service
+    buildCommand: npm install
+    startCommand: npm start
+    plan: free
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+
+  - type: web
+    name: usuarios-service
+    runtime: node
+    rootDir: usuarios-service
+    buildCommand: npm install
+    startCommand: npm start
+    plan: free
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_SERVICE_ROLE_KEY
+        sync: false
+
+  - type: web
+    name: notas-service
+    runtime: node
+    rootDir: notas-service
+    buildCommand: npm install
+    startCommand: npm start
+    plan: free
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+
+  - type: web
+    name: asistencia-service
+    runtime: node
+    rootDir: asistencia-service
+    buildCommand: npm install
+    startCommand: npm start
+    plan: free
+    envVars:
+      - key: SUPABASE_URL
+        sync: false
+      - key: SUPABASE_ANON_KEY
+        sync: false
+
+  - type: web
+    name: gateway
+    runtime: node
+    rootDir: gateway
+    buildCommand: npm install
+    startCommand: npm start
+    plan: free
+    envVars:
+      - key: AUTH_SERVICE_URL
+        fromService:
+          name: auth-service
+          type: web
+          property: hostport
+      - key: USUARIOS_SERVICE_URL
+        fromService:
+          name: usuarios-service
+          type: web
+          property: hostport
+      - key: NOTAS_SERVICE_URL
+        fromService:
+          name: notas-service
+          type: web
+          property: hostport
+      - key: ASISTENCIA_SERVICE_URL
+        fromService:
+          name: asistencia-service
+          type: web
+          property: hostport
+
+  - type: web
+    name: frontend
+    runtime: static
+    rootDir: frontend
+    buildCommand: echo "sin build, es HTML plano"
+    staticPublishPath: .

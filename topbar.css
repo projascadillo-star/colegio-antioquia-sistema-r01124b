@@ -1,0 +1,9 @@
+/* ── TOPBAR ── */
+.page-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.25rem;font-weight:800;color:var(--g900)}
+body.dark .page-title{color:var(--g300)}
+.topbar-right{display:flex;align-items:center;gap:10px}
+.dark-toggle{background:none;border:1px solid var(--g200);border-radius:8px;padding:6px 10px;
+  cursor:pointer;font-size:.8rem;color:var(--g700);font-weight:600;transition:all .15s}
+.dark-toggle:hover{background:var(--g50)}
+body.dark .dark-toggle{border-color:var(--g700);color:var(--g300)}
+

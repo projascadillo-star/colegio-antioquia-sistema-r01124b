@@ -1,0 +1,12 @@
+/* ── LOGIN ── */
+#login-screen{display:none;min-height:100vh;background:linear-gradient(135deg,var(--g950) 0%,var(--g900) 45%,var(--g700) 100%);
+  align-items:center;justify-content:center;padding:20px}
+.login-card{background:white;border-radius:20px;padding:40px;width:100%;max-width:420px;box-shadow:0 30px 80px rgba(0,0,0,.3)}
+.login-logo{display:flex;align-items:center;gap:12px;margin-bottom:28px}
+.login-logo img{width:52px;height:52px;border-radius:50%;object-fit:cover}
+.login-logo-txt b{display:block;font-family:'Plus Jakarta Sans',sans-serif;font-size:1.1rem;color:var(--g900)}
+.login-logo-txt span{font-size:.8rem;color:#64748b}
+.login-title{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.5rem;font-weight:800;color:var(--g900);margin-bottom:4px}
+.login-sub{color:#64748b;font-size:.85rem;margin-bottom:24px}
+.login-error{background:#fee2e2;border:1px solid #fca5a5;color:#7f1d1d;border-radius:8px;padding:10px 14px;font-size:.83rem;margin-bottom:14px;display:none}
+

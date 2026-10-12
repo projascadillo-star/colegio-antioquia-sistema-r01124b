@@ -1,0 +1,15 @@
+/* ── STAT CARDS ── */
+.stats-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(160px,1fr));gap:14px;margin-bottom:22px}
+.stat-card{background:white;border-radius:12px;padding:18px 20px;border:1px solid var(--g100);
+  position:relative;overflow:hidden;box-shadow:0 1px 4px rgba(0,0,0,.05)}
+body.dark .stat-card{background:#0e2318;border-color:#1e3d28}
+.stat-card::before{content:'';position:absolute;top:0;left:0;right:0;height:3px}
+.stat-card.green::before{background:linear-gradient(90deg,var(--g600),var(--g400))}
+.stat-card.blue::before{background:linear-gradient(90deg,#0284c7,#38bdf8)}
+.stat-card.purple::before{background:linear-gradient(90deg,#7c3aed,#a78bfa)}
+.stat-card.orange::before{background:linear-gradient(90deg,#ea580c,#fb923c)}
+.stat-card .stat-label{font-size:.7rem;font-weight:700;color:#64748b;text-transform:uppercase;letter-spacing:.06em}
+.stat-card .stat-value{font-size:2rem;font-weight:800;color:var(--g800);line-height:1.1;margin-top:4px}
+body.dark .stat-card .stat-value{color:var(--g300)}
+.stat-card .stat-icon{position:absolute;right:14px;top:14px;font-size:1.5rem;opacity:.6}
+

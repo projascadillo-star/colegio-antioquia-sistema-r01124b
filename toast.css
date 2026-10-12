@@ -1,0 +1,9 @@
+/* ── TOAST ── */
+#toast-container{position:fixed;bottom:22px;right:22px;z-index:9999;display:flex;flex-direction:column;gap:8px}
+.toast{padding:11px 18px;border-radius:10px;font-size:.84rem;font-weight:600;
+  box-shadow:0 4px 20px rgba(0,0,0,.2);animation:slideUp .3s ease;min-width:220px}
+.toast-success{background:#15803d;color:white}
+.toast-error{background:#dc2626;color:white}
+.toast-info{background:#0284c7;color:white}
+@keyframes slideUp{from{opacity:0;transform:translateY(10px)}to{opacity:1;transform:translateY(0)}}
+

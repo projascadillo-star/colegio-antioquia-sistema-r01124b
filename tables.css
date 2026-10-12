@@ -1,0 +1,12 @@
+/* ── TABLE ── */
+.table-wrap{overflow-x:auto;border-radius:0 0 12px 12px}
+table{width:100%;border-collapse:collapse;font-size:.84rem}
+th{background:var(--g50);color:var(--g800);font-weight:700;padding:10px 14px;text-align:left;
+   font-size:.72rem;text-transform:uppercase;letter-spacing:.05em;border-bottom:2px solid var(--g200);white-space:nowrap}
+body.dark th{background:#0f2318;color:var(--g400);border-color:#1e3d28}
+td{padding:10px 14px;border-bottom:1px solid var(--g50);color:#374151;vertical-align:middle}
+body.dark td{border-color:#1a2e20;color:#cbd5e1}
+tr:hover td{background:var(--g50)}
+body.dark tr:hover td{background:#0f2318}
+tr:last-child td{border-bottom:none}
+

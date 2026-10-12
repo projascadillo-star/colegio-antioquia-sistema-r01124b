@@ -1,0 +1,9 @@
+/* ── LIBRETA / PDF ── */
+.libreta-header{background:linear-gradient(135deg,var(--g900),var(--g700));color:white;border-radius:12px;padding:22px;margin-bottom:18px}
+.libreta-header h2{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.3rem;font-weight:800}
+.libreta-header p{font-size:.85rem;opacity:.85;margin-top:3px}
+.estado-chip{display:inline-block;padding:5px 14px;border-radius:999px;font-weight:700;font-size:.82rem;margin-top:10px}
+.estado-PROMOVIDO{background:#dcfce7;color:#14532d}
+.estado-EN_RECUPERACION{background:#fef9c3;color:#713f12}
+.estado-REPITENTE{background:#fee2e2;color:#7f1d1d}
+

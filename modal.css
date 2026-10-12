@@ -1,0 +1,17 @@
+/* ── MODAL ── */
+.modal-overlay{position:fixed;inset:0;background:rgba(0,0,0,.5);backdrop-filter:blur(3px);
+  z-index:500;display:flex;align-items:center;justify-content:center;padding:20px}
+.modal-box{background:white;border-radius:16px;box-shadow:0 20px 60px rgba(0,0,0,.25);
+  width:100%;max-width:540px;max-height:90vh;overflow-y:auto;animation:fadeIn .2s ease}
+body.dark .modal-box{background:#0e2318;border:1px solid #1e3d28}
+.modal-header{padding:18px 22px;border-bottom:1px solid var(--g100);display:flex;align-items:center;justify-content:space-between}
+body.dark .modal-header{border-color:#1e3d28}
+.modal-header h3{font-family:'Plus Jakarta Sans',sans-serif;font-size:1.05rem;font-weight:800;color:var(--g900)}
+body.dark .modal-header h3{color:var(--g300)}
+.modal-close{background:none;border:none;cursor:pointer;font-size:1.4rem;color:#94a3b8;line-height:1;padding:2px 6px;border-radius:6px}
+.modal-close:hover{background:var(--g50);color:var(--g700)}
+.modal-body{padding:22px}
+.modal-footer{padding:14px 22px;border-top:1px solid var(--g100);display:flex;justify-content:flex-end;gap:8px}
+body.dark .modal-footer{border-color:#1e3d28}
+@keyframes fadeIn{from{opacity:0;transform:translateY(8px)}to{opacity:1;transform:translateY(0)}}
+

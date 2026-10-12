@@ -1,0 +1,9 @@
+/* ── LOADING ── */
+.spinner{width:30px;height:30px;border:3px solid var(--g100);border-top-color:var(--g600);
+  border-radius:50%;animation:spin .7s linear infinite;margin:40px auto}
+@keyframes spin{to{transform:rotate(360deg)}}
+.loading-page{text-align:center;padding:60px 20px;color:#94a3b8}
+.empty-state{text-align:center;padding:50px 20px;color:#94a3b8}
+.empty-state .ico{font-size:2.5rem;margin-bottom:10px}
+.empty-state p{font-weight:500;font-size:.9rem}
+

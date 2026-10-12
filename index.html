@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+<title>Sistema de Notas – Colegio Antioquia</title>
+<!-- TODO: quitar este script cuando termines de migrar TODAS las páginas (ver README) -->
+<script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Plus+Jakarta+Sans:wght@700;800&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="css/base.css">
+<link rel="stylesheet" href="css/layout.css">
+<link rel="stylesheet" href="css/sidebar.css">
+<link rel="stylesheet" href="css/topbar.css">
+<link rel="stylesheet" href="css/cards.css">
+<link rel="stylesheet" href="css/stats.css">
+<link rel="stylesheet" href="css/buttons.css">
+<link rel="stylesheet" href="css/forms.css">
+<link rel="stylesheet" href="css/tables.css">
+<link rel="stylesheet" href="css/badges.css">
+<link rel="stylesheet" href="css/modal.css">
+<link rel="stylesheet" href="css/toast.css">
+<link rel="stylesheet" href="css/login.css">
+<link rel="stylesheet" href="css/loading.css">
+<link rel="stylesheet" href="css/libreta.css">
+<link rel="stylesheet" href="css/asistencia.css">
+<link rel="stylesheet" href="css/tabs.css">
+<link rel="stylesheet" href="css/alerts.css">
+<link rel="stylesheet" href="css/responsive.css">
+</head>
+<!-- bcryptjs eliminado: la verificación de contraseñas la hace Supabase Auth de forma segura en su servidor -->
+<body>
+
+
+<!-- LOGIN -->
+<div id="login-screen" style="display:flex">
+  <div class="login-card">
+    <div class="login-logo">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4DltOCEadIIcKcVokCns2RUpOt_UZwot5zw&s" alt="Logo" onerror="this.style.display='none'"/>
+      <div class="login-logo-txt">
+        <b>Colegio Antioquia</b>
+        <span>Sistema de Control de Notas</span>
+      </div>
+    </div>
+    <h1 class="login-title">Iniciar sesión</h1>
+    <p class="login-sub">Ingresa tus credenciales para continuar</p>
+    <div class="login-error" id="login-error"></div>
+    <div class="form-group">
+      <label class="form-label">Correo electrónico</label>
+      <input class="form-input" type="email" id="login-correo" placeholder="usuario@colegio.edu.pe" autocomplete="email"/>
+    </div>
+    <div class="form-group">
+      <label class="form-label">Contraseña</label>
+      <input class="form-input" type="password" id="login-pass" placeholder="••••••••" autocomplete="current-password"/>
+    </div>
+    <button class="btn btn-primary" style="width:100%;padding:11px;font-size:.95rem;margin-top:6px" onclick="doLogin()" id="login-btn">
+      Ingresar al sistema
+    </button>
+    <p style="text-align:center;font-size:.75rem;color:#94a3b8;margin-top:18px">
+      Roles: Administrador · Docente · Estudiante · Padre de Familia
+    </p>
+  </div>
+</div>
+
+<!-- APP -->
+<div id="app" style="display:none">
+  <!-- SIDEBAR -->
+  <aside id="sidebar">
+    <div class="sidebar-logo">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcR4DltOCEadIIcKcVokCns2RUpOt_UZwot5zw&s" alt="Logo" onerror="this.style.display='none'"/>
+      <div class="sidebar-logo-txt"><b>Colegio</b><span>Antioquia</span></div>
+    </div>
+    <div id="nav-container"></div>
+    <div class="sidebar-footer">
+      <div class="user-chip">
+        <div class="user-avatar" id="user-avatar">?</div>
+        <div class="user-info">
+          <b id="user-name">—</b>
+          <span id="user-role">—</span>
+        </div>
+      </div>
+      <button class="btn-logout" onclick="doLogout()">🚪 Cerrar sesión</button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <div id="main">
+    <div id="topbar">
+      <div style="display:flex;align-items:center;gap:12px">
+        <button class="menu-btn" onclick="document.getElementById('sidebar').classList.toggle('open')">☰</button>
+        <h1 class="page-title" id="topbar-title">Dashboard</h1>
+      </div>
+      <div class="topbar-right">
+        <button class="dark-toggle" onclick="toggleDark()">🌙 Modo oscuro</button>
+      </div>
+    </div>
+    <div id="page-content">
+      <div class="loading-page"><div class="spinner"></div><p>Cargando...</p></div>
+    </div>
+  </div>
+</div>
+
+<!-- MODAL CONTAINER -->
+<div id="modal-overlay" class="modal-overlay" style="display:none" onclick="if(event.target===this)closeModal()">
+  <div class="modal-box" id="modal-box"></div>
+</div>
+
+<!-- TOAST -->
+<div id="toast-container"></div>
+
+<script src="js/config.js"></script>
+<script src="js/validaciones.js"></script>
+<script src="js/auth.js"></script>
+<script src="js/init.js"></script>
+<script src="js/menu.js"></script>
+<script src="js/router.js"></script>
+<script src="js/dashboard.js"></script>
+<script src="js/estudiantes.js"></script>
+<script src="js/docentes.js"></script>
+<script src="js/cursos.js"></script>
+<script src="js/secciones.js"></script>
+<script src="js/asignaciones.js"></script>
+<script src="js/ano-escolar.js"></script>
+<script src="js/evaluaciones.js"></script>
+<script src="js/calificativo-bimestral.js"></script>
+<script src="js/calificativo-final.js"></script>
+<script src="js/asistencia.js"></script>
+<script src="js/consolidado.js"></script>
+<script src="js/vista-estudiante.js"></script>
+<script src="js/libreta.js"></script>
+<script src="js/vista-padre.js"></script>
+<script src="js/modal.js"></script>
+<script src="js/toast.js"></script>
+</body>
+</html>
